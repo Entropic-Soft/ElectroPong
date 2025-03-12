@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjefwoqj53a47"
+path="res://.godot/imported/椎名もた(siinamota) - Young Girl A  少女A.mp3-08ffc6cd73930643dc0a32048212f20d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/椎名もた(siinamota) - Young Girl A  少女A.mp3"
+dest_files=["res://.godot/imported/椎名もた(siinamota) - Young Girl A  少女A.mp3-08ffc6cd73930643dc0a32048212f20d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

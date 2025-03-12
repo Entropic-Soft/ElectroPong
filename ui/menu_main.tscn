@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3rbaqr3sr3vx"]
+
+[ext_resource type="FontFile" uid="uid://c1xbiljmbigao" path="res://assets/Godofthunder-0WO1P.ttf" id="1_g787a"]
+[ext_resource type="Script" path="res://ui/menu_main.gd" id="1_vwtvm"]
+[ext_resource type="Texture2D" uid="uid://chc7v1mwp18p5" path="res://assets/Sample.png" id="1_xun0u"]
+[ext_resource type="AudioStream" uid="uid://d4hsqy3l4mxy1" path="res://assets/audio/game-start-6104.mp3" id="4_fltuq"]
+[ext_resource type="AudioStream" uid="uid://6rmfjehbom3o" path="res://assets/audio/Enter & Back.mp3" id="5_ynijk"]
+[ext_resource type="PackedScene" uid="uid://cbt0agvdyqb2g" path="res://scenes/bg_sfx.tscn" id="6_3ht1e"]
+
+[node name="MenuMain" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vwtvm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xun0u")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = -16.0
+offset_right = 875.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0.576471, 0.72549, 0.87451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.00392157)
+theme_override_fonts/font = ExtResource("1_g787a")
+theme_override_font_sizes/font_size = 87
+text = "ElectroPong"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 168.0
+offset_right = 998.0
+offset_bottom = 631.0
+theme_override_constants/separation = 21
+alignment = 1
+
+[node name="play" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.923117, 0.948599, 1, 1)
+theme_override_colors/font_outline_color = Color(0.764921, 0.295, 0.782148, 1)
+theme_override_fonts/font = ExtResource("1_g787a")
+theme_override_font_sizes/font_size = 37
+text = "PLAY"
+
+[node name="game_options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.923117, 0.948599, 1, 1)
+theme_override_colors/font_outline_color = Color(0.764921, 0.295, 0.782148, 1)
+theme_override_fonts/font = ExtResource("1_g787a")
+theme_override_font_sizes/font_size = 37
+text = "GAME OPTIONS"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.923117, 0.948599, 1, 1)
+theme_override_colors/font_outline_color = Color(0.764921, 0.295, 0.782148, 1)
+theme_override_fonts/font = ExtResource("1_g787a")
+theme_override_font_sizes/font_size = 37
+text = "CREDITS"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.923117, 0.948599, 1, 1)
+theme_override_colors/font_outline_color = Color(0.764921, 0.295, 0.782148, 1)
+theme_override_fonts/font = ExtResource("1_g787a")
+theme_override_font_sizes/font_size = 37
+text = "QUIT"
+
+[node name="sfx_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fltuq")
+
+[node name="sfx_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ynijk")
+
+[node name="BgSfx" parent="." instance=ExtResource("6_3ht1e")]
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/game_options" to="." method="_on_game_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="sfx_play" to="." method="_on_sfx_play_finished"]
+[connection signal="finished" from="sfx_click" to="." method="_on_sfx_click_finished"]

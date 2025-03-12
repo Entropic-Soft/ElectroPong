@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ysh34otvyd"]
+
+[ext_resource type="VideoStream" path="res://assets/ping-pong-anime.ogv" id="1_67072"]
+[ext_resource type="Script" path="res://ui/name_input.gd" id="1_odcpo"]
+[ext_resource type="FontFile" uid="uid://c1xbiljmbigao" path="res://assets/Godofthunder-0WO1P.ttf" id="2_vh88a"]
+[ext_resource type="AudioStream" uid="uid://d4hsqy3l4mxy1" path="res://assets/audio/game-start-6104.mp3" id="4_p8v7s"]
+
+[node name="NameInput" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odcpo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_67072")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -191.0
+offset_right = 210.5
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VideoStreamPlayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.870588, 1)
+theme_override_fonts/font = ExtResource("2_vh88a")
+theme_override_font_sizes/font_size = 52
+text = "Enter Name"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VideoStreamPlayer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.866667, 0.756863, 1)
+placeholder_text = "JAMES MAASIN"
+alignment = 1
+max_length = 12
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -421.0
+offset_top = -191.0
+offset_bottom = 191.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VideoStreamPlayer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.870588, 1)
+theme_override_fonts/font = ExtResource("2_vh88a")
+theme_override_font_sizes/font_size = 52
+text = "Enter player2"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VideoStreamPlayer/VBoxContainer2"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.866667, 0.756863, 1)
+placeholder_text = "JAMES MAASIN"
+alignment = 1
+max_length = 12
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VideoStreamPlayer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -191.0
+offset_right = 421.0
+offset_bottom = 191.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VideoStreamPlayer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.870588, 1)
+theme_override_fonts/font = ExtResource("2_vh88a")
+theme_override_font_sizes/font_size = 52
+text = "Enter PLayer1"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VideoStreamPlayer/VBoxContainer3"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.866667, 0.756863, 1)
+placeholder_text = "JAMES MAASIN"
+alignment = 1
+max_length = 12
+
+[node name="Enter" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -167.0
+offset_right = 172.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_vh88a")
+theme_override_font_sizes/font_size = 52
+text = "GAME START"
+
+[node name="sfx_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p8v7s")
+
+[connection signal="pressed" from="Enter" to="." method="_on_enter_pressed"]
+[connection signal="finished" from="sfx_play" to="." method="_on_sfx_play_finished"]
